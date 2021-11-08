@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    /* a and b are first and second values that are used for caliculations
+    * arithmetic contains +,-/,*,% etc
+    * result is the final output */
     private String a="";
     private String b="";
     private String arithmetic="";
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         result=(TextView) findViewById(R.id.result);
+        /*button zero adds zero to a if the arthmetic is null or empty */
         Button zero = (Button) findViewById(R.id.button_0);
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+/* dot is added only once for a or b as it will represent the decimal*/
         Button dot = (Button) findViewById(R.id.button_dot);
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+/*clear will clear all the values of a.b.arthmatic and sets result to zero*/
         Button clear = (Button) findViewById(R.id.button_clear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("0");
             }
         });
-
+/*addition ,subtraction multiplicain and division will update the value of arthmetic */
         Button addition = (Button) findViewById(R.id.button_add);
         addition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,18 +252,21 @@ public class MainActivity extends AppCompatActivity {
                 result.setText(a+"%");
             }
         });
-
+/*button enter is the final button for our output here we caliculate the final result*/
         Button enter = (Button) findViewById(R.id.button_enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 double result_val=0;
+                /*checking whether arthmatic is updated or not*/
                 if(null!=arithmetic&&!"".equals(arithmetic))
                 {
                     if(null!=b&&!"".equals(b))
                     {
+
                         double a_val= Double.parseDouble(a);
                         double b_val= Double.parseDouble(b);
+                        /*caliculations are done here*/
                         if(arithmetic.equals("+"))
                             result_val=a_val +b_val;
                         if(arithmetic.equals("-"))
@@ -270,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
                             result_val=a_val/b_val;
                         if(arithmetic.equals("%"))
                             result_val=a_val%b_val;
+
                         String final_result=""+ result_val;
                         if(final_result.equals(""))
                             result.setText("0");

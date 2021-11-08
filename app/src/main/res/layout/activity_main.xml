@@ -8,7 +8,7 @@
     android:background="#3C4EA3E6"
     tools:context=".MainActivity">
 
-
+<!--Table start-->
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-
+<!--Each row contains three buttons and are aligned center-->
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -249,7 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
-
+<!--Final result in the following text view-->
     <TextView
         android:id="@+id/result"
         android:layout_width="255dp"
